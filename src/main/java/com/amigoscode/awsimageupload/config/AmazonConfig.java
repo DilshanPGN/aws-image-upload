@@ -3,6 +3,7 @@ package com.amigoscode.awsimageupload.config;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import org.springframework.context.annotation.Bean;
@@ -15,12 +16,13 @@ public class AmazonConfig {
     public AmazonS3 s3(){
 
         AWSCredentials awsCredentials = new BasicAWSCredentials(
-                "AKIA35KSOA5OJ7Q3XMB2",
-                "48bf5FVvzYzgGqmQoZcsEyMlh46q1oxbtm+6JRrI"
+                "AKIA35KSOA5OMV3HNEHV",
+                "Ya+bdq4FU4PypMqIo+JTi2zwJBZh+8WX12iCp87i"
         );
 
         return AmazonS3ClientBuilder
                 .standard()
+                .withRegion(Regions.US_EAST_1)
                 .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
                 .build();
     }
