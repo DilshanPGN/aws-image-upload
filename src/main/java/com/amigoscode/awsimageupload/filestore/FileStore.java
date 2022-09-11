@@ -30,6 +30,7 @@ public class FileStore {
         optionalMetadata.ifPresent(map ->{
             if (!map.isEmpty()){
                 map.forEach(metadata::addUserMetadata);
+                //map.forEach((key, value) -> metadata.addUserMetadata(key, value));
             }
         });
 
