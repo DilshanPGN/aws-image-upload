@@ -1,6 +1,7 @@
 package com.amigoscode.awsimageupload.profile;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.UUID;
 
 public class UserProfile {
@@ -8,7 +9,11 @@ public class UserProfile {
     private String username;
     private String userProfileImageLink; //S3 key
 
-    public UserProfile(UUID userProfileId, String username, String userProfileImageLink) {
+    public UserProfile(
+            UUID userProfileId,
+            String username,
+            String userProfileImageLink) {
+
         this.userProfileId = userProfileId;
         this.username = username;
         this.userProfileImageLink = userProfileImageLink;
@@ -25,13 +30,12 @@ public class UserProfile {
     public String getUsername() {
         return username;
     }
-
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public String getUserProfileImageLink() {
-        return userProfileImageLink;
+    public Optional<String> getUserProfileImageLink() {
+        return Optional.ofNullable(userProfileImageLink);
     }
 
     public void setUserProfileImageLink(String userProfileImageLink) {
